@@ -19,12 +19,13 @@ function Message(props) {
                 </FormControl>
                 </div>
 
-
-                <div  class="bg-no-repeat bg-center ..." > 
-                <Button  onClick={() => alert("click")} >Submit</Button>
+                <div > 
+                <Button  className=" w-full bg-gradient-to-r from-indigo-900 to-indigo-900  "  onClick={() => alert("click")} >Submit</Button>
                 </div>
+                
             
         </div>
+        
     )
 }
 
