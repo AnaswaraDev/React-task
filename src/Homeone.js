@@ -1,32 +1,64 @@
 import React from 'react'
-//import useForm from 'react-hook-form'
+import { useForm } from "react-hook-form";
 import { FormControl } from 'baseui/form-control';
 import { Input } from 'baseui/input';
 import { Button } from "baseui/button";
 import "tailwindcss/tailwind.css";
 import './index.css';
+
+
+
 function Homeone() {
   const [value, setValue] = React.useState('');
+
+  //console.log(value);
+
+  const { handleSubmit } = useForm();
+
+  const onhandleSubmit = (event) => {
+    //event.preventdefault();
+    console.log(value);
+  }
+  //const {signup,handleSubmit} = useForm();
+  //function showname(){
+  // alert("event.currentTarget.value");
+  //}
+  //document.getElementById('roots').innerHTML = value
   return (
+    <div>
+      <div className="max-w-md mx-auto flex p-6 bg-gray-100 mt-10  rounded-sm shadow-xl" >
+        <div className="w-full">
+          <p className="text-lg ... text-purple-700 text-opacity-100 " >Secret Message Book </p>
 
-    <div className="max-w-md mx-auto flex p-6 bg-gray-100 mt-10  rounded-sm shadow-xl" >
+
+          <form onSubmit={handleSubmit(onhandleSubmit)}>
+            <div className="text-2xl text-blue-700 leading-tight">
+              <label>Your Name :</label>
+              <Input id="input-id" placeholder="Full Name" value={value}
+                required onChange={(event) =>
+                  setValue(event.target.value)} />
 
 
-      <div className="w-full">
-        <p class="text-lg ... text-purple-700 text-opacity-100 " >Secret Message Book </p>
+            </div>
 
-        <FormControl label="Your Name :" className="text-2xl text-blue-700 leading-tight">
-          <Input id="input-id" value={value} placeholder="Full Name"
-            onChange={event => setValue(event.currentTarget.value)} />
-        </FormControl>
-        
-      <div> 
-        <Button className=" w-full bg-gradient-to-r from-indigo-800 to-indigo-800  " onClick={() => alert("click")} >Sign Up</Button>
+            <Button className=" w-full bg-gradient-to-r from-indigo-800 to-indigo-800  "
+            >Sign Up</Button>
+
+          </form>
+
         </div>
-        </div>
+
+
+
+      </div>
+      <div  className="max-w-md mx-auto flex p-6 bg-gray-100 mt-10  rounded-sm shadow-xl" >
+      <p>{value}</p>
+      </div> 
     </div>
-
   )
+
 }
 
 export default Homeone
+   // <div id="roots">
+     // </div>

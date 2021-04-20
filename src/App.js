@@ -1,4 +1,4 @@
-import logo from './logo.svg'
+//import logo from './logo.svg'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import SignUp from './SignUp'
@@ -20,7 +20,7 @@ function App() {
           </Route>
 
           <Route path="/Homeone">
-            <Homeone />
+           <Homeone/>
           </Route>
 
           <Route path="/Message">
