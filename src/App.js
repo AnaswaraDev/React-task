@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import SignUp from './SignUp'
 import Home from './Home'
+import Sample from './Sample'
 import Homeone from './Homeone'
 import "tailwindcss/tailwind.css"
 import './index.css';
@@ -25,6 +26,10 @@ function App() {
 
           <Route path="/Message">
             <Message />
+          </Route>
+
+          <Route path="/Sample">
+            <Sample />
           </Route>
 
         </Switch>

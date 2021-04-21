@@ -1,12 +1,21 @@
+import { Input } from 'baseui/input';
 import React from 'react'
-import { useForm } from "react-hook-form";
-const sample = () => {
-    
-    return (
-        <div>
-            
-        </div>
-    )
+//import useState from 'react-hook-form'
+const onChangeHandler=(e)=>{
+    console.log("current value",e.target.value);
 }
 
-export default sample
+function Sample()  {
+    const [currentItem, setcurrentItem] = React.useState('');
+    return (
+      <div   className="sample">
+      <Input  placeholder="Full Name" value={currentItem}
+      onChange={(event) => setcurrentItem(event.target.value) }/>
+
+       
+        <button>signup</button>
+      </div>
+    )
+  }
+  
+  export default Sample

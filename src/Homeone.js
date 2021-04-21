@@ -10,55 +10,70 @@ import './index.css';
 
 function Homeone() {
   const [value, setValue] = React.useState('');
+  // const [itemList,updateItemList] = React.useState([]);
 
   //console.log(value);
 
   const { handleSubmit } = useForm();
 
-  const onhandleSubmit = (event) => {
-    //event.preventdefault();
-    console.log(value);
-  }
-  //const {signup,handleSubmit} = useForm();
-  //function showname(){
-  // alert("event.currentTarget.value");
-  //}
-  //document.getElementById('roots').innerHTML = value
-  return (
-    <div>
-      <div className="max-w-md mx-auto flex p-6 bg-gray-100 mt-10  rounded-sm shadow-xl" >
-        <div className="w-full">
-          <p className="text-lg ... text-purple-700 text-opacity-100 " >Secret Message Book </p>
+  const onhandleSubmit = (e) => {
+  //event.preventdefault();
+  console.log(value);
+  // setValue(value);
+}
+// const addItemsToList = () =>{
+//updateItemList([...itemList,{ value:value,key : Date.now()}]);
+// setValue("");
+// console.log(value);
+//}
+//const {signup,handleSubmit} = useForm();
+//function showname(){
+// alert("event.currentTarget.value");
+//}
+//document.getElementById('roots').innerHTML = value
+
+return (
+  <div>
+    <div className="max-w-md mx-auto flex p-6 bg-gray-100 mt-10  rounded-sm shadow-xl" >
+      <div className="w-full">
+        <p className="text-lg ... text-purple-700 text-opacity-100 " >Secret Message Book </p>
 
 
-          <form onSubmit={handleSubmit(onhandleSubmit)}>
-            <div className="text-2xl text-blue-700 leading-tight">
-              <label>Your Name :</label>
-              <Input id="input-id" placeholder="Full Name" value={value}
-                required onChange={(event) =>
-                  setValue(event.target.value)} />
+        <form onSubmit={handleSubmit(onhandleSubmit)}>
+          <div className="text-2xl text-blue-700 leading-tight">
 
 
-            </div>
 
-            <Button className=" w-full bg-gradient-to-r from-indigo-800 to-indigo-800  "
-            >Sign Up</Button>
-
-          </form>
-
-        </div>
+            <label>Your Name :</label>
+            <Input id="input-id" placeholder="Full Name" value={value}
+              onChange={(event) =>
+                setValue(event.target.value)
+             } />
 
 
+          </div>
+
+          <Button className=" w-full bg-gradient-to-r from-indigo-800 to-indigo-800"
+          onClick={()=>setValue(value)}  >Sign Up</Button>
+
+        </form>
 
       </div>
-      <div  className="max-w-md mx-auto flex p-6 bg-gray-100 mt-10  rounded-sm shadow-xl" >
-      <p>{value}</p>
-      </div> 
+
+
+
     </div>
-  )
+    <div className="max-w-md mx-auto flex p-6 bg-gray-100 mt-10  rounded-sm shadow-xl" >
+
+      <p>{value}</p>
+
+
+
+    </div>
+  </div>
+)
 
 }
 
 export default Homeone
-   // <div id="roots">
-     // </div>
+//onClick={addItemsToList}
