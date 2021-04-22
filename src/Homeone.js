@@ -48,12 +48,13 @@ return (
             <Input id="input-id" placeholder="Full Name" value={value}
               onChange={(event) =>
                 setValue(event.target.value)
-             } />
-
-
+             } /> 
+           
           </div>
+          <textarea>
+          </textarea>
 
-          <Button className=" w-full bg-gradient-to-r from-indigo-800 to-indigo-800"
+          <Button className="  w-full bg-red-to-r from-indigo-800 to-indigo-800"
           onClick={()=>setValue(value)}  >Sign Up</Button>
 
         </form>

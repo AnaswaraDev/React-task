@@ -8,6 +8,8 @@ import Homeone from './Homeone'
 import "tailwindcss/tailwind.css"
 import './index.css';
 import Message from './Message'
+import Test2 from './Test2'
+
 function App() {
   return (
     <div className="container mx-auto">
@@ -31,6 +33,10 @@ function App() {
           <Route path="/Sample">
             <Sample />
           </Route>
+          <Route path="/Test2">
+          <Test2 />
+        </Route>
+
 
         </Switch>
 
