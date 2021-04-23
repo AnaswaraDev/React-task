@@ -8,11 +8,16 @@ import './index.css'
 import Message from './Message'
 import Test2 from './Test2'
 import SampleForm from './SampleForm'
-
+import MyForm from './MyForm'
+import LinkSample from './LinkSample'
+import Home1 from './Home1'
+import Home2 from './Home2'
+import Home3 from './Home3'
 function App() {
     return (
         <div className="container mx-auto">
             <Router>
+
                 <Switch>
                     <Route exact path="/">
                         <SampleForm />
@@ -31,6 +36,24 @@ function App() {
 
                     <Route path="/Test2">
                         <Test2 />
+                    </Route>
+
+                    <Route path="/MyForm">
+                        <MyForm />
+                    </Route>
+
+                    <Route path="/LinkSample">
+                        <LinkSample />
+                    </Route>
+
+                    <Route path="/Home1">
+                        <Home1 />
+                    </Route>
+                    <Route path="/Home2">
+                        <Home2 />
+                    </Route>
+                    <Route path="/Home3">
+                        <Home3 />
                     </Route>
                 </Switch>
             </Router>
