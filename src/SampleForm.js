@@ -96,7 +96,7 @@ const SampleForm = () => {
                     )}
                 />
 
-                <Button>Submit</Button>  <Button>Signup</Button>
+                <Button>Submit</Button>  
             </form>
             {formData && (
                 <div style={{ paddingTop: '30px' }}>

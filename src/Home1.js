@@ -1,32 +1,47 @@
 import React from 'react'
-import { Button } from 'baseui/button'
+import { Button, KIND, SIZE } from 'baseui/button'
 import { Input } from 'baseui/input'
-import { Textarea } from 'baseui/textarea'
-import { Checkbox, LABEL_PLACEMENT } from 'baseui/checkbox'
 import { FormControl } from 'baseui/form-control'
 import { useForm, Controller } from 'react-hook-form'
 import { H3 } from 'baseui/typography'
 import Home2 from './Home2'
-import {useHistory} from "react-router-dom";
+import { customAlphabet } from 'nanoid'
+import { Checkbox, LABEL_PLACEMENT } from 'baseui/checkbox'
+//import { useHistory } from "react-router-dom";
+
+const UserContext = React.createContext()
+
+const nanoid = customAlphabet('1234567890abcdef', 10)
+
 const Home1 = () => {
+
     const {
         handleSubmit,
         control,
         formState: { errors },
         reset
     } = useForm()
+
     const [formData, setFormData] = React.useState(null)
 
     const onSubmit = values => {
+
+        console.log("values", values);
+        let key = nanoid()
+        console.log("key is", key)
+        let url = `http://localhost:3000/Home1/${key}`
+        console.log("url ", url)
         setFormData(values)
         reset()
+
+
     }
 
-    let data= useHistory();
-    function handleClick(){
-        data.push("/home2")
-    }
+    //let history = useHistory();
+    // function handleClick() {
 
+    //    history.push("/home2");
+    //  }
     return (
         <div
             style={{
@@ -60,21 +75,17 @@ const Home1 = () => {
                     )}
                 />
 
-
-
-
-
-
-                <Button type="button" onClick={handleClick}>
-                    
-                Submit</Button>
-                
+                <Button >Submit </Button>
             </form>
 
-
+            <UserContext.Provider value={42}>
+                <div>
+                    <Home2 />
+                </div>
+            </UserContext.Provider>
         </div>
     )
 }
-
-
 export default Home1
+// onClick={handleClick}
+//<Button type="button" onClick={handleClick} >Submit </Button>

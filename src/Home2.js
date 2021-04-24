@@ -1,11 +1,11 @@
 import React from 'react'
-
+import UserContext from './Home1'
 function Home2() {
     return (
-        <div className="max-w-prose mx-auto  p-20 bg-gray-100  mt-10 ">
-            <p>Copy the below link</p>
-        </div>
-    )
+        <UserContext.Consumer>
+        {value => <div>The answer is {value}.</div>}
+      </UserContext.Consumer>
+    );
 }
 
 export default Home2

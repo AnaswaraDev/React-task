@@ -1,6 +1,6 @@
 //import logo from './logo.svg'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-
+import ReactDOM from "react-dom";
 import SignUp from './SignUp'
 import Homeone from './Homeone'
 import 'tailwindcss/tailwind.css'
@@ -10,12 +10,18 @@ import Test2 from './Test2'
 import SampleForm from './SampleForm'
 import MyForm from './MyForm'
 import LinkSample from './LinkSample'
+
 import Home1 from './Home1'
 import Home2 from './Home2'
 import Home3 from './Home3'
+
+
 function App() {
     return (
         <div className="container mx-auto">
+
+
+
             <Router>
 
                 <Switch>
@@ -46,8 +52,9 @@ function App() {
                         <LinkSample />
                     </Route>
 
-                    <Route path="/Home1">
-                        <Home1 />
+
+                    <Route path="/Home1">      
+                            <Home1 />
                     </Route>
                     <Route path="/Home2">
                         <Home2 />
