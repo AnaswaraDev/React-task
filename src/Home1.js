@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useContext }  from 'react'
 import { Button, KIND, SIZE } from 'baseui/button'
 import { Input } from 'baseui/input'
 import { FormControl } from 'baseui/form-control'
@@ -78,12 +78,14 @@ const Home1 = () => {
                 <Button >Submit </Button>
             </form>
 
-            <UserContext.Provider value={42}>
-                <div>
-                    <Home2 />
-                </div>
-            </UserContext.Provider>
+            <UserContext.Provider value={onSubmit}>
+            <div>
+   
+            </div>
+          </UserContext.Provider>
         </div>
+
+      
     )
 }
 export default Home1
