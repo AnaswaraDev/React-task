@@ -8,8 +8,7 @@ import Home2 from './Home2'
 import { customAlphabet } from 'nanoid'
 import { Checkbox, LABEL_PLACEMENT } from 'baseui/checkbox'
 //import { useHistory } from "react-router-dom";
-
-const UserContext = React.createContext()
+export const UserContext = React.createContext()
 
 const nanoid = customAlphabet('1234567890abcdef', 10)
 
@@ -78,7 +77,7 @@ const Home1 = () => {
                 <Button >Submit </Button>
             </form>
 
-            <UserContext.Provider value={onSubmit}>
+            <UserContext.Provider value={{formData}}>
             <div>
    
             </div>
