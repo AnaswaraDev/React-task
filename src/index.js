@@ -7,24 +7,21 @@ import reportWebVitals from './reportWebVitals'
 import { Client as Styletron } from 'styletron-engine-atomic'
 import { Provider as StyletronProvider } from 'styletron-react'
 import { LightTheme, BaseProvider, styled } from 'baseui'
-const engine = new Styletron()
-const UserContext = React.createContext();
-ReactDOM.render(
-  <React.StrictMode>
-    <StyletronProvider value={engine}>
-      <BaseProvider theme={LightTheme}>
+import { AppContextProvider } from './context'
 
-      <UserContext.Provider value={45}>
-      <UserContext.Consumer>
-      <App />
-    </UserContext.Consumer>
-     
-      </UserContext.Provider>
-   
-      </BaseProvider>
-    </StyletronProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+const engine = new Styletron()
+
+ReactDOM.render(
+    <React.StrictMode>
+        <StyletronProvider value={engine}>
+            <BaseProvider theme={LightTheme}>
+                <AppContextProvider>
+                    <App />
+                </AppContextProvider>
+            </BaseProvider>
+        </StyletronProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
 )
 
 // If you want to start measuring performance in your app, pass a function

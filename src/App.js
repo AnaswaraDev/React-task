@@ -1,6 +1,6 @@
 //import logo from './logo.svg'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom'
 import SignUp from './SignUp'
 import Homeone from './Homeone'
 import 'tailwindcss/tailwind.css'
@@ -14,19 +14,11 @@ import React from 'react'
 import Home1 from './Home1'
 import Home2 from './Home2'
 import Home3 from './Home3'
-import Context from './Context'
-
-
 function App() {
-    
-    const [myFieldValue, setmyFieldValue] = React.useState("")
+    const [myFieldValue, setmyFieldValue] = React.useState('')
     return (
         <div className="container mx-auto">
-
-
-
             <Router>
-
                 <Switch>
                     <Route exact path="/">
                         <SampleForm />
@@ -55,23 +47,13 @@ function App() {
                         <LinkSample />
                     </Route>
 
-
                     <Route path="/Home1">
                         <Home1 />
                     </Route>
-                    <Route path="/Home2">
-                        <Home2 />
-                    </Route>
+                    <Route exact path="/user/:key" component={Home2}></Route>
                     <Route path="/Home3">
                         <Home3 />
                     </Route>
-
-                    <Route path="/Context">
-                    <Context />
-                </Route>
-
-                   
-
                 </Switch>
             </Router>
         </div>

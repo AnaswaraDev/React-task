@@ -13,6 +13,7 @@
     "react-hook-form": "^7.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "reactjs-localstorage": "^1.0.1",
     "styletron-engine-atomic": "^1.4.7",
     "styletron-react": "^6.0.1",
     "web-vitals": "^1.0.1"
