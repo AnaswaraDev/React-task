@@ -8,12 +8,19 @@ import { Client as Styletron } from 'styletron-engine-atomic'
 import { Provider as StyletronProvider } from 'styletron-react'
 import { LightTheme, BaseProvider, styled } from 'baseui'
 const engine = new Styletron()
-
+const UserContext = React.createContext();
 ReactDOM.render(
   <React.StrictMode>
     <StyletronProvider value={engine}>
       <BaseProvider theme={LightTheme}>
-        <App />
+
+      <UserContext.Provider value={45}>
+      <UserContext.Consumer>
+      <App />
+    </UserContext.Consumer>
+     
+      </UserContext.Provider>
+   
       </BaseProvider>
     </StyletronProvider>
   </React.StrictMode>,
