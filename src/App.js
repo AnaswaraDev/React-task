@@ -10,13 +10,15 @@ import Test2 from './Test2'
 import SampleForm from './SampleForm'
 import MyForm from './MyForm'
 import LinkSample from './LinkSample'
-
+import React from 'react'
 import Home1 from './Home1'
 import Home2 from './Home2'
 import Home3 from './Home3'
-
+import Context from './Context'
 
 function App() {
+
+    const [myFieldValue, setmyFieldValue] = React.useState("")
     return (
         <div className="container mx-auto">
 
@@ -53,8 +55,8 @@ function App() {
                     </Route>
 
 
-                    <Route path="/Home1">      
-                            <Home1 />
+                    <Route path="/Home1">
+                        <Home1 />
                     </Route>
                     <Route path="/Home2">
                         <Home2 />
@@ -62,6 +64,13 @@ function App() {
                     <Route path="/Home3">
                         <Home3 />
                     </Route>
+
+                    <Route path="/Context">
+                    <Context />
+                </Route>
+
+                   
+
                 </Switch>
             </Router>
         </div>

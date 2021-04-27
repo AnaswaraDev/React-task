@@ -18,48 +18,62 @@ const Home3 = () => {
 
     const onSubmit = values => {
         setFormData(values)
+        console.log(values);
         reset()
     }
 
     return (
-        <div  className="max-w-prose mx-auto  p-20 bg-gray-100  mt-10  ">
-        <div
-            style={{
-                paddingTop: '30px',
-                width: '400px'
-            }}>
-            <H3>Enter your message here</H3>
-            <hr />
-            <form onSubmit={handleSubmit(onSubmit)}>
-            <Controller
-            control={control}
-            name="message"
-            render={({ field: { onChange, onBlur, value, ref } }) => (
-                <FormControl
-                    label={() => 'Enter your message'}
-                    caption={
-                        errors && errors.message
-                            ? 'Please enter your bio!'
-                            : 'Enter your bio!'
-                    }>
-                    <Textarea
-                        value={value}
-                        onChange={onChange}
-                        onBlur={onBlur}
-                        ref={ref}
-                        clearOnEscape
+        <div className="max-w-prose mx-auto  p-20 bg-gray-100  mt-10  ">
+            <div
+                style={{
+                    paddingTop: '30px',
+                    width: '400px'
+                }}>
+                <H3>Enter your message here</H3>
+                <hr />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <Controller
+                        control={control}
+                        name="message"
+                        render={({ field: { onChange, onBlur, value, ref } }) => (
+                            <FormControl
+                                label={() => 'Enter your message'}
+                                caption={
+                                    errors && errors.message
+                                        ? 'Please enter your bio!'
+                                        : 'Enter your bio!'
+                                }>
+                                <Textarea
+                                    value={value}
+                                    onChange={onChange}
+                                    onBlur={onBlur}
+                                    ref={ref}
+                                    clearOnEscape
+                                />
+                            </FormControl>
+                        )}
                     />
-                </FormControl>
-            )}
-        />
-                    
 
-                
+
+
+
+                    <Button className=" w-full bg-gradient-to-r from-indigo-900 to-indigo-900  " >Submit</Button>
+                </form>
                
-                <Button className=" w-full bg-gradient-to-r from-indigo-900 to-indigo-900  " >Submit</Button>  
-            </form>
-            
-        </div>
+            </div>
+           
+                <div style={{ paddingTop: '30px' }}>
+                   
+                   
+                   
+                            <h4>
+                                <b>Name</b> - {formData.message}
+                            </h4>
+                      
+                </div>
+           
+               
+
         </div>
     )
 }
