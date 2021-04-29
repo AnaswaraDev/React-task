@@ -7,6 +7,7 @@ export const AppContextProvider = props => {
     const [value, setValue] = useState(reactLocalStorage.getObject('data'))
     const saveData = newData => {
         reactLocalStorage.setObject('data', { ...value, ...newData })
+        
     }
 
     return (

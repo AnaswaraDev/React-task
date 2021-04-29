@@ -35,7 +35,7 @@ export default function Sample() {
 
 
   const toggleValue = valueId => {
-    const updatedvalue = save.map(todo => {
+    const updatedvalue = save.map(value => {
       return value.id === valueId
         ? { ...value, completed: !value.completed }
         : value;

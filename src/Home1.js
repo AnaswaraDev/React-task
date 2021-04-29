@@ -9,7 +9,7 @@ import Home3 from './Home3'
 import { customAlphabet } from 'nanoid'
 import { Checkbox, LABEL_PLACEMENT } from 'baseui/checkbox'
 import { useHistory } from 'react-router-dom'
-import { AppContext } from './context'
+import { AppContext } from './Context'
 
 const nanoid = customAlphabet('1234567890abcdef', 10)
 
@@ -23,13 +23,17 @@ const Home1 = () => {
 
     const { value, saveData } = useContext(AppContext)
     let history = useHistory()
+    //alert(history);
 
     const onSubmit = values => {
         let key = nanoid()
         let submitValue = {}
         submitValue[key] = values
         saveData(submitValue)
-
+        let url = `http://localhost:3000/Home3/${key}`
+        console.log("url is",url);
+        console.log("name is",values);
+        console.log("key is",key);
         reset()
     }
 
@@ -67,6 +71,20 @@ const Home1 = () => {
 
                         <Button>Submit </Button>
                     </form>
+                    {value && (
+                        <div >
+                           
+                         
+                            <ul>
+                                <li>
+                                    <h4>
+                                        <b>Name</b> - {}
+                                    </h4>
+                                </li>
+                              
+                            </ul>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

@@ -62,18 +62,7 @@ const Home3 = () => {
                
             </div>
            
-                <div style={{ paddingTop: '30px' }}>
-                   
-                   
-                   
-                            <h4>
-                                <b>Name</b> - {formData.message}
-                            </h4>
-                      
-                </div>
-           
-               
-
+                
         </div>
     )
 }
