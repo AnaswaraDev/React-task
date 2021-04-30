@@ -1,13 +1,13 @@
+import { Controller, useForm } from 'react-hook-form'
 import React, { useContext } from 'react'
+
 import { Button } from 'baseui/button'
-import { Input } from 'baseui/input'
-
 import { FormControl } from 'baseui/form-control'
-import { useForm, Controller } from 'react-hook-form'
-import { customAlphabet } from 'nanoid'
+import { Input } from 'baseui/input'
 import { MsgContext } from './MsgContext'
+import { customAlphabet } from 'nanoid'
 
-const nanoid = customAlphabet('1234567890abcdef', 10)
+const nanoid = customAlphabet('1234567890abcdef', 6)
 const Home4 = () => {
     const {
         handleSubmit,
@@ -16,30 +16,20 @@ const Home4 = () => {
         reset
     } = useForm()
 
-    
-
-    
-
-    const onSubmit = values => {
-        setFormData(values)
-        console.log("values is",values);
+    const onSubmit = (values) => {
         let key = nanoid()
-        console.log("key is",key);
-        let url = `http://localhost:3000/Home3/${key}`
-        console.log("url is",url);
+        setFormData(key)
         reset()
     }
-    
-    const { showmsg}  = useContext(MsgContext);
-    const [formData, setFormData] = React.useState("")
+
+    const { showmsg } = useContext(MsgContext)
+    const [formData, setFormData] = React.useState('')
     return (
         <div
             style={{
                 paddingTop: '30px',
                 width: '600px'
             }}>
-            
-           
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Controller
                     control={control}
@@ -63,32 +53,16 @@ const Home4 = () => {
                         </FormControl>
                     )}
                 />
-                                                                                                                                                                                                     
-               
-
-                <Button>Submit</Button>  
+                <Button>Submit</Button>
             </form>
             {formData && (
-                <div style={{ paddingTop: '30px' }}>
-                    
-                    
-                            <h4>
-                                <b>Name</b> - {formData.name}
-                            </h4>
-                     
+                <div className="mt-20">
+                    <a
+                        className="text-blue-400"
+                        href={`/MsgSend/${formData}`}>{`/MsgSend/${formData}`}</a>
                 </div>
-            )} 
+            )}
         </div>
     )
 }
 export default Home4
-/*  {formData && (
-                <div style={{ paddingTop: '30px' }}>
-                    
-                    
-                            <h4>
-                                <b>Name</b> - {formData.name}
-                            </h4>
-                     
-                </div>
-            )} */
