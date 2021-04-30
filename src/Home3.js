@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useContext } from 'react'
 import { Button } from 'baseui/button'
 import { Input } from 'baseui/input'
 import { Textarea } from 'baseui/textarea'
@@ -6,7 +6,7 @@ import { Checkbox, LABEL_PLACEMENT } from 'baseui/checkbox'
 import { FormControl } from 'baseui/form-control'
 import { useForm, Controller } from 'react-hook-form'
 import { H3 } from 'baseui/typography'
-
+import { MsgContext } from './MsgContext'
 const Home3 = () => {
     const {
         handleSubmit,
@@ -14,13 +14,15 @@ const Home3 = () => {
         formState: { errors },
         reset
     } = useForm()
-    const [formData, setFormData] = React.useState(null)
-
-    const onSubmit = values => {
-        setFormData(values)
-        console.log(values);
-        reset()
-    }
+    
+    const { setShowmsg, setformData}  = useContext(MsgContext);
+   // const [formData, setformData] = React.useState(false);
+   //const onSubmit = values => {
+    //setformData(values)
+   //    console.log(values);
+   
+  //      reset()
+   // }
 
     return (
         <div className="max-w-prose mx-auto  p-20 bg-gray-100  mt-10  ">
@@ -31,7 +33,8 @@ const Home3 = () => {
                 }}>
                 <H3>Enter your message here</H3>
                 <hr />
-                <form onSubmit={handleSubmit(onSubmit)}>
+             
+                <form >
                     <Controller
                         control={control}
                         name="message"
@@ -43,13 +46,17 @@ const Home3 = () => {
                                         ? 'Please enter your bio!'
                                         : 'Enter your bio!'
                                 }>
-                                <Textarea
-                                    value={value}
-                                    onChange={onChange}
-                                    onBlur={onBlur}
-                                    ref={ref}
-                                    clearOnEscape
-                                />
+                                <Input
+                                 value={value}
+                                 onChange={(event)=>{
+                                    setShowmsg(event.target.value)
+                                 }
+
+                                 }
+                                 onBlur={onBlur}
+                                 inputRef={ref}
+                                 clearOnEscape
+                            />
                             </FormControl>
                         )}
                     />
@@ -57,13 +64,24 @@ const Home3 = () => {
 
 
 
-                    <Button className=" w-full bg-gradient-to-r from-indigo-900 to-indigo-900  " >Submit</Button>
+                    <Button onclick={()=>{setformData(true);
+                    }} 
+                    className=" w-full bg-gradient-to-r from-indigo-900 to-indigo-900  " >Submit
+                    </Button>
                 </form>
-               
+                
             </div>
+            
            
                 
         </div>
     )
 }
 export default Home3
+/* {formData && (
+                    <h4>
+                        <b>Message is </b> - {formData.message}
+                    </h4>
+    )}*/
+
+      //onSubmit={handleSubmit(onSubmit)}

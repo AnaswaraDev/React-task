@@ -21,11 +21,14 @@ const Home1 = () => {
         reset
     } = useForm()
 
+    const [data, setdata] = React.useState(null)
+    
     const { value, saveData } = useContext(AppContext)
     let history = useHistory()
-    //alert(history);
+   // alert(history);
 
     const onSubmit = values => {
+        setdata(values)
         let key = nanoid()
         let submitValue = {}
         submitValue[key] = values
@@ -75,14 +78,10 @@ const Home1 = () => {
                         <div >
                            
                          
-                            <ul>
-                                <li>
-                                    <h4>
-                                        <b>Name</b> - {}
+                                <h4>
+                                        <b>Name</b> - {data.name}
                                     </h4>
-                                </li>
-                              
-                            </ul>
+                               
                         </div>
                     )}
                 </div>
