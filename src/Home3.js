@@ -6,7 +6,7 @@ import { Checkbox, LABEL_PLACEMENT } from 'baseui/checkbox'
 import { FormControl } from 'baseui/form-control'
 import { useForm, Controller } from 'react-hook-form'
 import { H3 } from 'baseui/typography'
-import { MsgContext } from './MsgContext'
+//import { MsgContext1 } from './MsgContext1'
 const Home3 = () => {
     const {
         handleSubmit,
@@ -15,14 +15,14 @@ const Home3 = () => {
         reset
     } = useForm()
     
-    const { setShowmsg, setformData}  = useContext(MsgContext);
-   // const [formData, setformData] = React.useState(false);
-   //const onSubmit = values => {
-    //setformData(values)
+  // const { setShowmsg, setformData}  = useContext(MsgContext1);
+   const [formData, setformData] = React.useState("");
+   const onSubmit = values => {
+    setformData(values)
    //    console.log(values);
    
-  //      reset()
-   // }
+       reset()
+    }
 
     return (
         <div className="max-w-prose mx-auto  p-20 bg-gray-100  mt-10  ">
@@ -48,11 +48,7 @@ const Home3 = () => {
                                 }>
                                 <Input
                                  value={value}
-                                 onChange={(event)=>{
-                                    setShowmsg(event.target.value)
-                                 }
-
-                                 }
+                                 onChange={onChange}
                                  onBlur={onBlur}
                                  inputRef={ref}
                                  clearOnEscape

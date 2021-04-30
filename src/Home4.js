@@ -5,7 +5,7 @@ import { Input } from 'baseui/input'
 import { FormControl } from 'baseui/form-control'
 import { useForm, Controller } from 'react-hook-form'
 import { customAlphabet } from 'nanoid'
-import { MsgContext } from './MsgContext'
+//import { MsgContext } from './MsgContext1'
 
 const nanoid = customAlphabet('1234567890abcdef', 10)
 const Home4 = () => {
@@ -16,22 +16,22 @@ const Home4 = () => {
         reset
     } = useForm()
 
-    
+    const [formValue, setFormValue] = React.useState("")
 
     
 
     const onSubmit = values => {
-        setFormData(values)
+        setFormValue(values)
         console.log("values is",values);
         let key = nanoid()
         console.log("key is",key);
-        let url = `http://localhost:3000/Home3/${key}`
+        let url = `http://localhost:3000/MsgSend/${key}`
         console.log("url is",url);
         reset()
     }
     
-    const { showmsg}  = useContext(MsgContext);
-    const [formData, setFormData] = React.useState("")
+   // const { showmsg}  = useContext(MsgContext);
+    
     return (
         <div
             style={{
@@ -68,12 +68,12 @@ const Home4 = () => {
 
                 <Button>Submit</Button>  
             </form>
-            {formData && (
+            {formValue && (
                 <div style={{ paddingTop: '30px' }}>
                     
                     
                             <h4>
-                                <b>Name</b> - {formData.name}
+                                <b>Name</b> - {formValue.name}
                             </h4>
                      
                 </div>
